@@ -30,6 +30,10 @@ Writing a sorting algorithm is an essential step in a developer’s journey. It 
   - Handle errors properly and display "Error" followed by a newline on the standard error in case of any error.
 
 ## Usage
+To configure the program (on Linux):
+```bash
+make
+
 To use the `push_swap` program:
 ```bash
 ./push_swap [list_of_integers]
