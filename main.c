@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	{
 		stack_a = init_stack(argc, argv);
 		stack_b = empty_stack();
-		insertion_sort(stack_a, stack_b);
+		// insertion_sort(stack_a, stack_b);
 		print_stack(stack_a);
 		print_stack(stack_b);
 		ft_lstclear(stack_a, NULL);
