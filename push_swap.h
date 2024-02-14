@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:47:41 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/02/09 16:43:20 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:13:45 by elisevanite      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # define ABS(x, y) ((x) > (y) ? (x) - (y) : (y) - (x))
 
 // Initializing and stack utils
-t_list	**init_stack(int argc, char **argv);
-t_list	**empty_stack();
+void    init_stack(int argc, char **argv, t_list **stack);
+void	empty_stack(t_list **stack);
 void	set_index(t_list **stack);
 void	print_stack(t_list **head);
 

@@ -3,46 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:19:01 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/02/09 16:24:19 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:57:18 by elisevanite      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_list	**fill_stack(char **numbers, t_list **head)
+static void	fill_stack(char **numbers, t_list **stack)
 {
-	t_list	*node;
-	int		len;
+	t_list	*new;
 	int		i;
 
-	len = 0;
-	while (numbers[len])
-		len++;
-	head = (t_list **)malloc(len * sizeof(t_list *));
-	if (!head)
-		return (NULL);
-	*head = NULL;
+	*stack = NULL;
 	i = 0;
-	node = ft_lstnew(numbers[i]);
-	node->index = 0;
-	if (!node)
+	while (numbers[i])
 	{
-		free(head);
-		return (NULL);
+		new = ft_lstnew(numbers[i]);
+		ft_lstadd_back(stack, new);
+		i++;
 	}
-	*head = node;
-	while (numbers[++i])
-		ft_lstadd_back(head, ft_lstnew(numbers[i]));
-	set_index(head);
-	return (head);
+	set_index(stack);
 }
 
-t_list	**init_stack(int argc, char **argv)
+void	init_stack(int argc, char **argv, t_list **stack)
 {
-	t_list	**head;
 	char	**numbers;
 
 	if (argc == 2 && ft_strrchr(argv[1], ' '))
@@ -52,31 +39,29 @@ t_list	**init_stack(int argc, char **argv)
 		argv++;
 		numbers = argv;
 	}
-	head = NULL;
-	head = fill_stack(numbers, head);
-	return (head);
+	fill_stack(numbers, stack);
 }
 
-t_list	**empty_stack()
+void	empty_stack(t_list **stack)
 {
-	t_list	**head;
-
-	head = (t_list **)malloc(sizeof(t_list));
-	*head = ft_lstnew(NULL);
-	set_index(head);
-	return (head);
+	*stack = ft_lstnew(NULL);
+	set_index(stack);
 }
 
 void	print_stack(t_list **head)
 {
-	int		i;
+	t_list	*temp;
 
-	i = 0;
-	ft_printf("\n");
-	while (head[i])
+	ft_printf("\n------- Stack ------\n");
+	temp = *head;
+	while (temp)
 	{
-		ft_printf("(%s) ", head[i]->content);
-		i++;
+		if (temp->content)
+			ft_printf("(%s) ", temp->content);
+		else
+			ft_printf("null ");
+		temp = temp->next;
 	}
+	ft_printf("\n");
 }
 
