@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 14:38:14 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/02/08 16:22:46 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/02/14 15:50:02 by elisevanite      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	rotate(t_list **stack)
 
 	temp = (*stack)->next;
 	node = *stack;
-	ft_lstadd_back(stack, node);
 	*stack = temp;
+	ft_lstadd_back(stack, node);
 }
 
 void	reverse_rotate(t_list **stack)

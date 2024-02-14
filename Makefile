@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+         #
+#    By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/06 16:51:38 by evan-ite          #+#    #+#              #
-#    Updated: 2024/02/08 11:52:58 by evan-ite         ###   ########.fr        #
+#    Updated: 2024/02/14 15:36:06 by elisevanite      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CFLAGS = -Wall -Werror -Wextra -g
 
 NAME = push_swap
 LIBFT = libft/libft.a
-SRC = main.c stack.c operations.c insertion.c
+SRC = main.c stack.c operations.c smallsort.c
 
 OBJ = $(SRC:.c=.o)
 

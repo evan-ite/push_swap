@@ -6,7 +6,7 @@
 /*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:47:41 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/02/14 14:13:45 by elisevanite      ###   ########.fr       */
+/*   Updated: 2024/02/14 15:35:57 by elisevanite      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include "libft/ft_printf.h"
 # include "libft/getnextline.h"
 
-# define ABS(x, y) ((x) > (y) ? (x) - (y) : (y) - (x))
-
 // Initializing and stack utils
 void    init_stack(int argc, char **argv, t_list **stack);
 void	empty_stack(t_list **stack);
@@ -26,7 +24,7 @@ void	set_index(t_list **stack);
 void	print_stack(t_list **head);
 
 // Algorithm
-void	insertion_sort(t_list **stack_a, t_list **stack_b);
+void    sort_three(t_list **stack);
 
 // Operations
 void	swap(t_list **stack);

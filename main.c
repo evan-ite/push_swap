@@ -6,7 +6,7 @@
 /*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:45:53 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/02/14 15:00:43 by elisevanite      ###   ########.fr       */
+/*   Updated: 2024/02/14 15:36:40 by elisevanite      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,11 @@ int	main(int argc, char **argv)
 		stack_b = NULL;
 		init_stack(argc, argv, &stack_a);
 		empty_stack(&stack_b);
-		// insertion_sort(stack_a, stack_b);
 		print_stack(&stack_a);
 		print_stack(&stack_b);
-		ft_lstclear(&stack_a, NULL);
+		sort_three(&stack_a);
+		print_stack(&stack_a);
+		ft_lstclear(&stack_a, free);
 		return (1);
 	}
 }
