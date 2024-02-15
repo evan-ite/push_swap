@@ -6,7 +6,7 @@
 /*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:45:53 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/02/15 09:34:56 by elisevanite      ###   ########.fr       */
+/*   Updated: 2024/02/15 17:27:27 by elisevanite      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	main(int argc, char **argv)
 			sort_three(&stack_a);
 		else if (ft_lstsize(stack_a) <= 5)
 			sort_five(&stack_a, &stack_b);
+		else
+			sort_all(&stack_a, &stack_b);
 		print_stack(&stack_a);
 		print_stack(&stack_b);
 		ft_lstclear(&stack_a, free);
