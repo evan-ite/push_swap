@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 17:16:50 by evan-ite          #+#    #+#             */
-/*   Updated: 2023/11/27 14:53:07 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/02/15 09:43:58 by elisevanite      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 int	ft_lstsize(t_list *lst)
 {
 	int	count;
+	t_list *temp;
 
 	count = 0;
-	while (lst)
+	temp = lst;
+	while (temp)
 	{
-		lst = lst->next;
+		temp = temp->next;
 		count++;
 	}
 	return (count);

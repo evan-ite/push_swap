@@ -6,7 +6,7 @@
 /*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:19:01 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/02/14 15:29:29 by elisevanite      ###   ########.fr       */
+/*   Updated: 2024/02/15 09:07:32 by elisevanite      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ void	print_stack(t_list **head)
 		if (temp->content)
 			ft_printf("(%i) ", *(int*)temp->content);
 		else
-			ft_printf("null ");
+			ft_printf("(null) ");
 		temp = temp->next;
 	}
-	ft_printf("\n");
+	ft_printf("\n--------------------\n");
 }
 
