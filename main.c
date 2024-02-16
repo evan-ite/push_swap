@@ -6,7 +6,7 @@
 /*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:45:53 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/02/15 17:27:27 by elisevanite      ###   ########.fr       */
+/*   Updated: 2024/02/16 13:30:10 by elisevanite      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	main(int argc, char **argv)
 		stack_a = NULL;
 		stack_b = NULL;
 		init_stack(argc, argv, &stack_a);
-		empty_stack(&stack_b);
 		if (ft_lstsize(stack_a) <= 3)
 			sort_three(&stack_a);
 		else if (ft_lstsize(stack_a) <= 5)

@@ -6,7 +6,7 @@
 /*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 14:38:14 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/02/14 15:50:02 by elisevanite      ###   ########.fr       */
+/*   Updated: 2024/02/16 13:41:01 by elisevanite      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	rotate(t_list **stack)
 	t_list	*temp;
 	t_list	*node;
 
+	if (!*stack || !(*stack)->next)
+		return ;
 	temp = (*stack)->next;
 	node = *stack;
 	*stack = temp;

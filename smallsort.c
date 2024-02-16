@@ -6,7 +6,7 @@
 /*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 15:03:19 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/02/15 15:56:31 by elisevanite      ###   ########.fr       */
+/*   Updated: 2024/02/16 12:39:33 by elisevanite      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,34 @@ static void    set_abc(t_list **a, t_list **b, t_list **c, t_list **stack)
     *a = *stack;
     *b = (*stack)->next;
     *c = (*b)->next;
+}
+
+static void final_sort(t_list **stack)
+{
+    t_list  *min;
+    int     i;
+
+    min = find_min(*stack);
+    if (min->index < (ft_lstsize(*stack) / 2))
+    {
+        i = 0;
+        while (i < min->index)
+        {
+            rotate(stack);
+            ft_printf("ra\n");
+            i++;
+        }
+    }
+    else
+    {
+        i = ft_lstsize(*stack);
+        while (i > min->index)
+        {
+            reverse_rotate(stack);
+            ft_printf("rra\n");
+            i--;
+        }
+    }
 }
 
 void    sort_three(t_list **stack)
@@ -61,10 +89,9 @@ void    sort_three(t_list **stack)
 
 void    sort_five(t_list **stack_a, t_list **stack_b)
 {
-    t_list  *a = NULL;
-    t_list  *b = NULL;
-    t_list  *c = NULL;
-    t_list  *temp;
+    t_list  *temp_b;
+    t_list  *temp_a;
+    int     i;
 
     while (ft_lstsize(*stack_a) > 3)
     {
@@ -72,41 +99,38 @@ void    sort_five(t_list **stack_a, t_list **stack_b)
         ft_printf("pb\n");
     }
     sort_three(stack_a);
-    set_abc(&a, &b, &c, stack_a);
-    temp = *stack_b;
+    temp_b = *stack_b;
+    temp_a = *stack_a;
     while (ft_lstsize(*stack_b) > 1)
     {
-        if (*(int*)temp->content < *(int*)a->content)
+        set_index(stack_a);
+        while (*(int*)temp_b->content > *(int*)temp_a->content)
+            temp_a = temp_a->next;
+        if (temp_a->index < (ft_lstsize(*stack_a) / 2))
         {
-            push(stack_a, stack_b);
-            ft_printf("pa\n");
+            i = 0;
+            while (i < temp_a->index)
+            {
+                rotate(stack_a);
+                ft_printf("ra\n");
+                i++;
+            }
         }
-        else if (*(int*)temp->content > *(int*)c->content)
+        else
         {
-            push(stack_a, stack_b);
-            ft_printf("pa\n");
-            rotate(stack_a);
-            ft_printf("ra\n");
+            i = ft_lstsize(*stack_a);
+            while (i > temp_a->index)
+            {
+                reverse_rotate(stack_a);
+                ft_printf("rra\n");
+                i--;
+            }
         }
-        else if (*(int*)temp->content < *(int*)b->content)
-        {
-            push(stack_a, stack_b);
-            ft_printf("pa\n");
-            swap(stack_a);
-            ft_printf("sa\n");
-        }
-        else if (*(int*)temp->content > *(int*)b->content)
-        {
-            reverse_rotate(stack_a);
-            ft_printf("rra\n");
-            push(stack_a, stack_b);
-            ft_printf("pa\n");
-            rotate(stack_a);
-            ft_printf("ra\n");
-            rotate(stack_a);
-            ft_printf("ra\n");
-        }
-        temp = *stack_b;
-        set_abc(&a, &b, &c, stack_a);
+        push(stack_a, stack_b);
+        ft_printf("pa\n");
+        temp_b = *stack_b;
+        temp_a = *stack_a;
     }
+    set_index(stack_a);
+    final_sort(stack_a);
 }

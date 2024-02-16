@@ -6,7 +6,7 @@
 /*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:19:01 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/02/15 09:07:32 by elisevanite      ###   ########.fr       */
+/*   Updated: 2024/02/16 13:30:33 by elisevanite      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,6 @@ void	init_stack(int argc, char **argv, t_list **stack)
 		numbers = argv;
 	}
 	fill_stack(numbers, stack);
-}
-
-void	empty_stack(t_list **stack)
-{
-	*stack = ft_lstnew(NULL);
-	set_index(stack);
 }
 
 void	print_stack(t_list **head)
