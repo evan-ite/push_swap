@@ -6,7 +6,7 @@
 /*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:00:54 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/02/16 14:01:03 by elisevanite      ###   ########.fr       */
+/*   Updated: 2024/02/16 14:29:09 by elisevanite      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,13 +94,8 @@ static void	sort_b(t_list **stack_a, t_list **stack_b)
 
 void    sort_all(t_list **stack_a, t_list **stack_b)
 {
-    // t_list  *min;
-
-    sort_a(stack_a, stack_b);
-	ft_printf("SORT A IS DONE< THIS IS THE RESULT\n");
+	sort_a(stack_a, stack_b);
+	sort_b(stack_a, stack_b);
+	final_sort(stack_a);
 	print_stack(stack_a);
-	print_stack(stack_b);
-    sort_b(stack_a, stack_b);
-    // min = find_min(*stack_a);
-    // rotate or reverse rotate depending on min->index
 }

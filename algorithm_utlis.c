@@ -6,7 +6,7 @@
 /*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:17:55 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/02/16 14:05:09 by elisevanite      ###   ########.fr       */
+/*   Updated: 2024/02/16 14:19:44 by elisevanite      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_list  *find_target_b(t_list *node, t_list **stack)
 	t_list  *target;
 
 	temp = *stack;
-	target = *stack;
+	target = find_max(*stack);
 	while (temp)
 	{
 		if (temp->content)
@@ -75,8 +75,6 @@ t_list  *find_target_b(t_list *node, t_list **stack)
 		}
 		temp = temp->next;
 	}
-	if (!target)
-		target = find_max(*stack);
 	return (target);
 }
 
@@ -86,7 +84,9 @@ t_list  *find_target_a(t_list *node, t_list **stack)
 	t_list  *target;
 
 	temp = *stack;
-	target = *stack;
+	target = find_max(*stack);
+	if (*(int*)node->content > *(int*)target->content)
+		return (find_min(*stack));
 	while (temp)
 	{
 		if (temp->content)
@@ -97,8 +97,6 @@ t_list  *find_target_a(t_list *node, t_list **stack)
 		}
 		temp = temp->next;
 	}
-	if (!target)
-		target = find_min(*stack);
 	return (target);
 }
 
