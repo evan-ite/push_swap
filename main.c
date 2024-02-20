@@ -6,7 +6,7 @@
 /*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:45:53 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/02/16 13:30:10 by elisevanite      ###   ########.fr       */
+/*   Updated: 2024/02/16 14:45:21 by elisevanite      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	main(int argc, char **argv)
 			sort_five(&stack_a, &stack_b);
 		else
 			sort_all(&stack_a, &stack_b);
-		print_stack(&stack_a);
-		print_stack(&stack_b);
+		// print_stack(&stack_a);
+		// print_stack(&stack_b);
 		ft_lstclear(&stack_a, free);
 		return (1);
 	}

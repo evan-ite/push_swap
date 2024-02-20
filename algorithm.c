@@ -6,7 +6,7 @@
 /*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:00:54 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/02/16 14:29:09 by elisevanite      ###   ########.fr       */
+/*   Updated: 2024/02/16 14:41:12 by elisevanite      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,22 +63,14 @@ static void	sort_b(t_list **stack_a, t_list **stack_b)
 
 	while (ft_lstsize(*stack_b) > 0)
 	{
-		print_stack(stack_a);
-		print_stack(stack_b);
-		ft_printf("list size stack b = %i\n", ft_lstsize(*stack_b));
 		set_index(stack_a);
 		set_index(stack_b);
 		temp = *stack_b;
 		cheapest = INT_MAX;
 		while (temp)
 		{
-			print_stack(stack_b);
-			ft_printf("Finding target for node %i in stack:\n", *(int*)temp->content);
-			print_stack(stack_a);
 			temp_target = find_target_a(temp, stack_a);
-			ft_printf("FOUND TARGET: %i\n", *(int*)temp_target->content);
 			push_cost = calc_cost(temp, temp_target);
-			ft_printf("push cost is %i\n", push_cost);
 			if (push_cost < cheapest)
 			{
 				cheapest_node = temp;
@@ -87,7 +79,6 @@ static void	sort_b(t_list **stack_a, t_list **stack_b)
 			}
 			temp = temp->next;
 		}
-		ft_printf("TIME TO PUSH NODE %i\n", *(int*)cheapest_node->content);
 		push_cheapest(cheapest_node, target_node, stack_b, stack_a);
 	}
 }
@@ -96,6 +87,6 @@ void    sort_all(t_list **stack_a, t_list **stack_b)
 {
 	sort_a(stack_a, stack_b);
 	sort_b(stack_a, stack_b);
+	set_index(stack_a);
 	final_sort(stack_a);
-	print_stack(stack_a);
 }

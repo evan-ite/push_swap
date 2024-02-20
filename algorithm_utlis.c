@@ -6,7 +6,7 @@
 /*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:17:55 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/02/16 14:19:44 by elisevanite      ###   ########.fr       */
+/*   Updated: 2024/02/16 14:40:26 by elisevanite      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,12 +126,14 @@ void    push_cheapest(t_list *node, t_list *target, t_list **from_stack, t_list 
 	while (i < node->index)
 	{
 		rotate(from_stack);
+		//CHANGE TO DEPENDENT ON FROM STACK
 		ft_printf("ra\n");
 		i++;
 	}
 		while (j < target->index)
 	{
 		rotate(to_stack);
+		//CHANGE TO DEPENDENT ON TOSTACK
 		ft_printf("rb\n");
 		j++;
 	}
