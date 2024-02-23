@@ -1,16 +1,22 @@
 # Push Swap Project README
 
 ## Introduction
-The Push Swap project is a fundamental algorithm project that focuses on sorting a set of integer values using two stacks and a set of instructions in the Push Swap language. The goal is to implement a sorting algorithm in C called `push_swap` that efficiently sorts the integers provided as arguments.
+The Push Swap project is a fundamental algorithm project that focuses on sorting a set of integer values using two stacks and a set of instructions. The goal is to implement a sorting algorithm in C called `push_swap` that efficiently sorts the integers provided as arguments. The main measure of effciency in this project will be number of moves performed on the stacks.
 
-## Project Overview
-Sorting algorithms play a crucial role in software development and are often encountered in various scenarios, including job interviews. This project offers an opportunity to delve into sorting algorithms and their complexities, enhancing one's understanding of algorithmic concepts.
+## Algorithm in pseudocode
+- While stack a is bigger than 3
+    1. Calculate average value of stack a
+    2. Is top node of stack a below average? Push node to b
+    3. Is top node of stack a above average? Rotate a
+- Sort last three nodes in stack a
 
-## Learning Objectives
-- Rigor in programming
-- Proficiency in C programming language
-- Understanding of basic algorithms and their complexities
-- Implementation of efficient sorting algorithms
+- While stack b exists
+    - For each node in stack b
+        1. Find target node in stack a (smallest bigger value)
+        2. calculate push cost (how many moves to get both nodes on top and push)
+    - Push cheapest node in stack b to stack a
+
+- Rotate stack a until minimum value is on top
 
 ## Rules and Functionality
 ### Version 1: Rules
@@ -31,15 +37,9 @@ Sorting algorithms play a crucial role in software development and are often enc
   - `rrb`: Reverse rotate all elements of stack `b` downwards by one position.
   - `rrr`: Perform `rra` and `rrb` simultaneously.
 
-### Project Requirements
-- Submission must include a `Makefile` for compiling source files.
-- Global variables are prohibited.
-- The program `push_swap` must take the stack `a` as an argument, formatted as a list of integers, with the first argument representing the top of the stack.
-- The program must display the smallest list of instructions required to sort stack `a`, with the smallest number at the top.
-- Instructions must be separated by a newline character.
-- The program should aim to minimize the number of operations required for sorting.
-- If no parameters are specified, the program should not display anything and return the prompt.
-- Error handling should include cases such as non-integer arguments, arguments exceeding integer limits, or duplicate arguments.
-
 ## Conclusion
 The Push Swap project provides an opportunity to hone skills in C programming, algorithmic thinking, and complexity analysis. By implementing efficient sorting algorithms and adhering to project guidelines, developers can gain valuable insights into algorithmic complexities and best practices in software development.
+
+## Acknowledgements
+- o-reo for creating a visualizer: https://github.com/o-reo/push_swap_visualizer
+- checker provided by the 42 Network
