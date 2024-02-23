@@ -35,20 +35,22 @@ Replace `[list of numbers]` with any (unsorted) list of numbers, without duplica
 ---
 
 **Algorithm in pseudocode**
-- While stack a is bigger than 3
-    1. Calculate average value of stack a
-    2. Is top node of stack a below average? Push node to b
-    3. Is top node of stack a above average? Rotate a
-- Sort last three nodes in stack a
+```
+While stack a is bigger than 3
+    Calculate average value of stack a
+    If top node of stack a below average
+        Push node to b
+    If top node of stack a above average
+        Rotate a
+    Sort last three nodes in stack a
 
-- While stack b exists
-    - For each node in stack b
-        1. Find target node in stack a (smallest bigger value)
-        2. calculate push cost (how many moves to get both nodes on top and push)
-    - Push cheapest node in stack b to stack a
-
-- Rotate stack a until minimum value is on top
-
+While stack b exists
+    For each node in stack b
+        Find target node in stack a (smallest bigger value)
+        Calculate push cost (how many moves to get both nodes on top and push)
+        Push cheapest node in stack b to stack a
+        Rotate stack a until minimum value is on top
+```
 ---
 **Rules and Functionality**
 - The project involves two stacks named `a` and `b`.
