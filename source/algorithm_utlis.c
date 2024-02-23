@@ -6,11 +6,11 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:17:55 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/02/21 16:23:40 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/02/23 12:02:19 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	average(t_list *stack)
 {

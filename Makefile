@@ -6,7 +6,7 @@
 #    By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/06 16:51:38 by evan-ite          #+#    #+#              #
-#    Updated: 2024/02/21 11:29:07 by evan-ite         ###   ########.fr        #
+#    Updated: 2024/02/23 12:01:55 by evan-ite         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,9 @@ CFLAGS = -Wall -Werror -Wextra -g
 
 NAME = push_swap
 LIBFT = libft/libft.a
-SRC = main.c stack.c operations.c smallsort.c algorithm.c algorithm_utlis.c errors.c \
-	push_cheapest.c
+SRC = source/main.c source/stack.c source/operations.c source/smallsort.c \
+	source/algorithm.c source/algorithm_utlis.c source/errors.c \
+	source/push_cheapest.c
 
 OBJ = $(SRC:.c=.o)
 

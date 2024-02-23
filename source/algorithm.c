@@ -6,11 +6,11 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:00:54 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/02/21 15:49:29 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/02/23 12:02:24 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	sort_a(t_list **stack_a, t_list **stack_b)
 {

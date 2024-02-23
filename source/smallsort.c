@@ -6,11 +6,11 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 15:03:19 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/02/21 15:33:33 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/02/23 12:02:42 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	set_abc(t_list **a, t_list **b, t_list **c, t_list **stack)
 {

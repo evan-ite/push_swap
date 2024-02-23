@@ -6,11 +6,11 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:18:35 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/02/22 13:58:27 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/02/23 12:02:28 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	free_numbers(char **numbers)
 {
