@@ -3,6 +3,37 @@
 ## Introduction
 The Push Swap project is a fundamental algorithm project that focuses on sorting a set of integer values using two stacks and a set of instructions. The goal is to implement a sorting algorithm in C called `push_swap` that efficiently sorts the integers provided as arguments. The main measure of effciency in this project will be number of moves performed on the stacks.
 
+---
+
+**Installation:**
+
+1. Clone the repository:
+   ```bash
+   git@github.com:evan-ite/push_swap.git
+   ```
+
+2. Navigate to the project directory:
+   ```bash
+   cd push_swap
+   ```
+
+3. Compile the project using make:
+   ```bash
+   make
+   ```
+
+---
+
+**Usage:**
+
+Run the game by executing the following command:
+```bash
+./push_swap [list of numbers]
+```
+Replace `[list of numbers]` with any (unsorted) list of numbers, without duplicates.
+
+---
+
 ## Algorithm in pseudocode
 - While stack a is bigger than 3
     1. Calculate average value of stack a
@@ -19,7 +50,6 @@ The Push Swap project is a fundamental algorithm project that focuses on sorting
 - Rotate stack a until minimum value is on top
 
 ## Rules and Functionality
-### Version 1: Rules
 - The project involves two stacks named `a` and `b`.
 - Initially, stack `a` contains a random assortment of negative and/or positive numbers without duplicates.
 - Stack `b` is initially empty.
