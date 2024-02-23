@@ -42,14 +42,16 @@ While stack a is bigger than 3
         Push node to b
     If top node of stack a above average
         Rotate a
-    Sort last three nodes in stack a
+
+Sort last three nodes in stack a
 
 While stack b exists
-    For each node in stack b
+   For each node in stack b
         Find target node in stack a (smallest bigger value)
         Calculate push cost (how many moves to get both nodes on top and push)
-        Push cheapest node in stack b to stack a
-        Rotate stack a until minimum value is on top
+   Push cheapest node in stack b to stack a
+
+Rotate stack a until minimum value is on top
 ```
 ---
 **Rules and Functionality**
