@@ -1,6 +1,6 @@
-# Push Swap Project README
+## Push Swap Project README
 
-## Introduction
+** Introduction**
 The Push Swap project is a fundamental algorithm project that focuses on sorting a set of integer values using two stacks and a set of instructions. The goal is to implement a sorting algorithm in C called `push_swap` that efficiently sorts the integers provided as arguments. The main measure of effciency in this project will be number of moves performed on the stacks.
 
 ---
@@ -34,7 +34,7 @@ Replace `[list of numbers]` with any (unsorted) list of numbers, without duplica
 
 ---
 
-## Algorithm in pseudocode
+** Algorithm in pseudocode **
 - While stack a is bigger than 3
     1. Calculate average value of stack a
     2. Is top node of stack a below average? Push node to b
@@ -49,7 +49,8 @@ Replace `[list of numbers]` with any (unsorted) list of numbers, without duplica
 
 - Rotate stack a until minimum value is on top
 
-## Rules and Functionality
+---
+** Rules and Functionality **
 - The project involves two stacks named `a` and `b`.
 - Initially, stack `a` contains a random assortment of negative and/or positive numbers without duplicates.
 - Stack `b` is initially empty.
@@ -67,9 +68,10 @@ Replace `[list of numbers]` with any (unsorted) list of numbers, without duplica
   - `rrb`: Reverse rotate all elements of stack `b` downwards by one position.
   - `rrr`: Perform `rra` and `rrb` simultaneously.
 
-## Conclusion
+---
+**Conclusion**
 The Push Swap project provides an opportunity to hone skills in C programming, algorithmic thinking, and complexity analysis. By implementing efficient sorting algorithms and adhering to project guidelines, developers can gain valuable insights into algorithmic complexities and best practices in software development.
 
-## Acknowledgements
+**Acknowledgements**
 - o-reo for creating a visualizer: https://github.com/o-reo/push_swap_visualizer
 - checker provided by the 42 Network
