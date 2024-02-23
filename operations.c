@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 14:38:14 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/02/16 13:41:01 by elisevanite      ###   ########.fr       */
+/*   Updated: 2024/02/21 12:06:17 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_list **stack)
+void	swap(t_list **stack, char c)
 {
 	t_list	*first;
 	t_list	*second;
@@ -22,9 +22,11 @@ void	swap(t_list **stack)
 	second->next = first->next;
 	first->next = second;
 	*stack = first;
+	if (c != ' ')
+		ft_printf("s%c\n", c);
 }
 
-void	push(t_list **to_stack, t_list **from_stack)
+void	push(t_list **to_stack, t_list **from_stack, char c)
 {
 	t_list	*temp;
 
@@ -32,9 +34,11 @@ void	push(t_list **to_stack, t_list **from_stack)
 	(*from_stack)->next = *to_stack;
 	*to_stack = *from_stack;
 	*from_stack = temp;
+	if (c != ' ')
+		ft_printf("p%c\n", c);
 }
 
-void	rotate(t_list **stack)
+void	rotate(t_list **stack, char c)
 {
 	t_list	*temp;
 	t_list	*node;
@@ -45,9 +49,11 @@ void	rotate(t_list **stack)
 	node = *stack;
 	*stack = temp;
 	ft_lstadd_back(stack, node);
+	if (c != ' ')
+		ft_printf("r%c\n", c);
 }
 
-void	reverse_rotate(t_list **stack)
+void	reverse_rotate(t_list **stack, char c)
 {
 	t_list	*temp;
 	t_list	*second_last;
@@ -61,4 +67,6 @@ void	reverse_rotate(t_list **stack)
 	second_last->next = NULL;
 	last->next = *stack;
 	*stack = last;
+	if (c != ' ')
+		ft_printf("rr%c\n", c);
 }

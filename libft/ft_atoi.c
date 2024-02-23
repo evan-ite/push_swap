@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:37:19 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/02/06 16:35:09 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/02/21 14:03:50 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int	ft_isspace(char c)
 		return (0);
 }
 
-int	ft_atoi(const char *s)
+long	ft_atoi(const char *s)
 {
-	int	sign;
-	int	value;
+	long	sign;
+	long	value;
 
 	sign = 1;
 	value = 0;

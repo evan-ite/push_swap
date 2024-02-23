@@ -3,23 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   smallsort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 15:03:19 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/02/16 14:22:56 by elisevanite      ###   ########.fr       */
+/*   Updated: 2024/02/21 15:33:33 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void    set_abc(t_list **a, t_list **b, t_list **c, t_list **stack)
+static void	set_abc(t_list **a, t_list **b, t_list **c, t_list **stack)
 {
 	*a = *stack;
 	*b = (*stack)->next;
 	*c = (*b)->next;
 }
 
-void final_sort(t_list **stack)
+static void	below_three(t_list **stack)
+{
+	if (!(*stack)->next)
+		return ;
+	if (*(int *)(*stack)->content > *(int *)(*stack)->next->content)
+		swap(stack, 'a');
+	return ;
+}
+
+void	final_sort(t_list **stack)
 {
 	t_list	*min;
 	int		i;
@@ -28,109 +37,52 @@ void final_sort(t_list **stack)
 	if (min->index < (ft_lstsize(*stack) / 2))
 	{
 		i = 0;
-		while (i < min->index)
-		{
-			rotate(stack);
-			ft_printf("ra\n");
-			i++;
-		}
+		while (i++ < min->index)
+			rotate(stack, 'a');
 	}
 	else
 	{
 		i = ft_lstsize(*stack);
-		while (i > min->index)
-		{
-			reverse_rotate(stack);
-			ft_printf("rra\n");
-			i--;
-		}
+		while (i-- > min->index)
+			reverse_rotate(stack, 'a');
 	}
 }
 
-void    sort_three(t_list **stack)
+void	sort_three(t_list **stack)
 {
-	t_list	*a = NULL;
-	t_list	*b = NULL;
-	t_list	*c = NULL;
+	t_list	*a;
+	t_list	*b;
+	t_list	*c;
 
 	if (ft_lstsize(*stack) < 3)
 	{
-		if (!(*stack)->next)
-			return ;
-		if (*(int*)(*stack)->content > *(int*)(*stack)->next->content)
-		{
-			swap(stack);
-			ft_printf("sa\n");
-			return ;
-		}
+		below_three(stack);
 		return ;
 	}
+	a = NULL;
+	b = NULL;
+	c = NULL;
 	set_abc(&a, &b, &c, stack);
-	if (*(int*)a->content > *(int*)b->content)
-	{
-		swap(stack);
-		ft_printf("sa\n");
-	}
+	if (*(int *)a->content > *(int *)b->content)
+		swap(stack, 'a');
 	set_abc(&a, &b, &c, stack);
-	if (*(int*)c->content < *(int*)a->content)
-	{
-		reverse_rotate(stack);
-		ft_printf("rra\n");
-	}
+	if (*(int *)c->content < *(int *)a->content)
+		reverse_rotate(stack, 'a');
 	set_abc(&a, &b, &c, stack);
-	if (*(int*)b->content > *(int*)c->content)
+	if (*(int *)b->content > *(int *)c->content)
 	{
-		reverse_rotate(stack);
-		ft_printf("rra\n");
-		swap(stack);
-		ft_printf("sa\n");
+		reverse_rotate(stack, 'a');
+		swap(stack, 'a');
 	}
 }
 
-void    sort_five(t_list **stack_a, t_list **stack_b)
+void	sort_five(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*temp_b;
-	t_list	*temp_a;
-	int		i;
-
 	while (ft_lstsize(*stack_a) > 3)
-	{
-		push(stack_b, stack_a);
-		ft_printf("pb\n");
-	}
+		push(stack_b, stack_a, 'b');
 	sort_three(stack_a);
-	temp_b = *stack_b;
-	temp_a = *stack_a;
-	while (ft_lstsize(*stack_b) > 1)
-	{
-		set_index(stack_a);
-		while (*(int*)temp_b->content > *(int*)temp_a->content)
-			temp_a = temp_a->next;
-		if (temp_a->index < (ft_lstsize(*stack_a) / 2))
-		{
-			i = 0;
-			while (i < temp_a->index)
-			{
-				rotate(stack_a);
-				ft_printf("ra\n");
-				i++;
-			}
-		}
-		else
-		{
-			i = ft_lstsize(*stack_a);
-			while (i > temp_a->index)
-			{
-				reverse_rotate(stack_a);
-				ft_printf("rra\n");
-				i--;
-			}
-		}
-		push(stack_a, stack_b);
-		ft_printf("pa\n");
-		temp_b = *stack_b;
-		temp_a = *stack_a;
-	}
+	while (*stack_b)
+		sort_b(stack_a, stack_b);
 	set_index(stack_a);
 	final_sort(stack_a);
 }

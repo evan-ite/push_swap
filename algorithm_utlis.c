@@ -3,16 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_utlis.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:17:55 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/02/16 14:40:26 by elisevanite      ###   ########.fr       */
+/*   Updated: 2024/02/21 16:23:40 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*find_min(t_list* stack)
+int	average(t_list *stack)
+{
+	long	sum;
+	t_list	*temp;
+
+	temp = stack;
+	sum = 0;
+	while (temp)
+	{
+		sum += *(int *)temp->content;
+		temp = temp->next;
+	}
+	return (sum / ft_lstsize(stack));
+}
+
+t_list	*find_min(t_list *stack)
 {
 	int		min;
 	int		temp;
@@ -20,11 +35,11 @@ t_list	*find_min(t_list* stack)
 	t_list	*min_node;
 
 	node = stack;
-	min = *(int*)node->content;
+	min = *(int *)node->content;
 	min_node = node;
 	while (node)
 	{
-		temp = *(int*)node->content;
+		temp = *(int *)node->content;
 		if (temp < min)
 		{
 			min = temp;
@@ -35,7 +50,7 @@ t_list	*find_min(t_list* stack)
 	return (min_node);
 }
 
-t_list	*find_max(t_list* stack)
+t_list	*find_max(t_list *stack)
 {
 	int		max;
 	int		temp;
@@ -43,11 +58,11 @@ t_list	*find_max(t_list* stack)
 	t_list	*max_node;
 
 	node = stack;
-	max = *(int*)node->content;
+	max = *(int *)node->content;
 	max_node = node;
 	while (node)
 	{
-		temp = *(int*)node->content;
+		temp = *(int *)node->content;
 		if (temp > max)
 		{
 			max = temp;
@@ -58,41 +73,21 @@ t_list	*find_max(t_list* stack)
 	return (max_node);
 }
 
-t_list  *find_target_b(t_list *node, t_list **stack)
+t_list	*find_target(t_list *node, t_list **stack)
 {
-	t_list  *temp;
-	t_list  *target;
+	t_list	*temp;
+	t_list	*target;
 
 	temp = *stack;
 	target = find_max(*stack);
-	while (temp)
-	{
-		if (temp->content)
-		{
-			if ((*(int*)temp->content < *(int*)node->content) && \
-				(*(int*)temp->content > *(int*)target->content))
-				target = temp;
-		}
-		temp = temp->next;
-	}
-	return (target);
-}
-
-t_list  *find_target_a(t_list *node, t_list **stack)
-{
-	t_list  *temp;
-	t_list  *target;
-
-	temp = *stack;
-	target = find_max(*stack);
-	if (*(int*)node->content > *(int*)target->content)
+	if (*(int *)node->content > *(int *)target->content)
 		return (find_min(*stack));
 	while (temp)
 	{
 		if (temp->content)
 		{
-			if (*(int*)temp->content > *(int*)node->content && \
-				*(int*)temp->content < *(int*)target->content)
+			if (*(int *)temp->content > *(int *)node->content && \
+				*(int *)temp->content < *(int *)target->content)
 				target = temp;
 		}
 		temp = temp->next;
@@ -100,43 +95,23 @@ t_list  *find_target_a(t_list *node, t_list **stack)
 	return (target);
 }
 
-int calc_cost(t_list *node, t_list *target)
+int	calc_cost(t_list *node, t_list *target, \
+			t_list **stack_node, t_list **stack_tar)
 {
-	int cost;
+	int	cost;
+	int	size_stack_node;
+	int	size_stack_tar;
 
-	cost = node->index + target->index + 1;
+	size_stack_node = (ft_lstsize(*stack_node) / 2);
+	size_stack_tar = (ft_lstsize(*stack_tar) / 2);
+	cost = 0;
+	if (node->index <= size_stack_node)
+		cost += node->index;
+	else if (node->index > size_stack_node)
+		cost += ft_lstsize(*stack_node) - node->index - 1;
+	if (target->index <= size_stack_tar)
+		cost += target->index;
+	else if (target->index > size_stack_tar)
+		cost += ft_lstsize(*stack_tar) - target->index - 1;
 	return (cost);
-}
-
-void    push_cheapest(t_list *node, t_list *target, t_list **from_stack, t_list **to_stack)
-{
-	int i;
-	int j;
-
-	i = 0;
-	j = 0;
-	while (i < node->index && j < target->index)
-	{
-		rotate(from_stack);
-		rotate(to_stack);
-		ft_printf("rr\n");
-		i++;
-		j++;
-	}
-	while (i < node->index)
-	{
-		rotate(from_stack);
-		//CHANGE TO DEPENDENT ON FROM STACK
-		ft_printf("ra\n");
-		i++;
-	}
-		while (j < target->index)
-	{
-		rotate(to_stack);
-		//CHANGE TO DEPENDENT ON TOSTACK
-		ft_printf("rb\n");
-		j++;
-	}
-	push(to_stack, from_stack);
-	ft_printf("pb\n");
 }

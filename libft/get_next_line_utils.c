@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:44:03 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/02/06 14:43:02 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/02/21 16:04:43 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ char	*gnl_strjoin(const char *s1, const char *s2)
 		s1 = "";
 	if (!s2)
 		s2 = "";
-	newstr = (char *)malloc((gnl_strlen(s1) + gnl_strlen(s2) + 1) * sizeof(char));
+	newstr = (char *)malloc(\
+			(gnl_strlen(s1) + gnl_strlen(s2) + 1) * sizeof(char));
 	if (!newstr)
 		return (NULL);
 	i = -1;

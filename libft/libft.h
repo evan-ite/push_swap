@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:40:30 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/02/08 15:39:07 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/02/21 15:36:36 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,15 @@
 typedef struct s_list
 {
 	void			*content;
-	struct s_list	*next;
 	int				index;
+	int				push_cost;
+	struct s_list	*target;
+	struct s_list	*next;
 }					t_list;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
+int		ft_isspace(char c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
@@ -43,7 +46,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
-int		ft_atoi(const char *s);
+long	ft_atoi(const char *s);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
