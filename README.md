@@ -1,4 +1,4 @@
-## Push Swap 42 Project README
+## Push Swap 42 Project
 
 
 The Push Swap project is a fundamental algorithm project that focuses on sorting a set of integer values using two stacks and a set of instructions. The goal is to implement a sorting algorithm in C called `push_swap` that efficiently sorts the integers provided as arguments. The main measure of effciency in this project will be number of moves performed on the stacks.
